@@ -1,0 +1,101 @@
+build.gradle
+--------------
+me.dm7.barcodescanner:zxing:1.9
+=====================
+
+
+AndroidManifest.xml
+-------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.project_03">
+
+    <uses-permission android:name="android.permission.CAMERA"/>		*****
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		*****
+    </application>
+</manifest>
+================================================
+
+MainActivity
+--------------
+package com.example.administrator.project_03;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import com.google.zxing.Result;
+
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
+public class MainActivity extends AppCompatActivity  implements ZXingScannerView.ResultHandler{
+
+    private ZXingScannerView zXingScannerView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    public void scaner (View view){
+        zXingScannerView = new ZXingScannerView(getApplicationContext());
+        setContentView(zXingScannerView);
+        zXingScannerView.setResultHandler(this);
+        zXingScannerView.startCamera();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        zXingScannerView.startCamera();
+    }
+
+    @Override
+    public void handleResult(Result result) {
+        Toast.makeText(getApplicationContext(),result.getText(),Toast.LENGTH_LONG).show();
+        zXingScannerView.resumeCameraPreview(this);
+    }
+}
+================================================================
+
+activity_main.xml
+---------------------
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context="com.example.administrator.project_03.MainActivity">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:gravity="center"
+            android:onClick="scaner"
+            android:text="scaner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
+

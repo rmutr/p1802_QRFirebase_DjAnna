@@ -1,0 +1,108 @@
+// Step-1
+//-----------------------------------------------------------
+Gradle Scripts -> build.gradle (Module app) ->
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation files('libs/physicaloidlibrary.jar')
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9'
+}
+
+
+// Step-2
+//-----------------------------------------------------------
+app -> manifests -> AndroidManifest.xml ->
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ine.rmutr.ac.th.hyoiqr">
+    
+    <uses-permission android:name="android.permission.CAMERA" />   <-- Add this line
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+
+// Step-3
+//-----------------------------------------------------------
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
+public class MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+
+
+    @Override
+    public void handleResult(Result result) {
+
+
+    }
+
+}
+
+
+// Step-4
+//-----------------------------------------------------------
+
+ZXingScannerView zXingScannerView;
+
+
+    public void btnQROpen_onClick(View view) {
+        this.zXingScannerView = new ZXingScannerView(getApplicationContext());
+        setContentView(zXingScannerView);
+        zXingScannerView.setResultHandler(this);
+        zXingScannerView.startCamera();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //zXingScannerView.setResultHandler(this);
+        //zXingScannerView.startCamera();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        zXingScannerView.stopCamera();
+    }
+
+    @Override
+    public void handleResult(Result result) {
+        this.qr_result_str = result.getText().toString();
+        this.txtQRResult.setText(this.qr_result_str);
+        Toast.makeText(MainActivity.this, this.qr_result_str, Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.activity_main);
+
+        if (this.qr_result_str.length() != 0) {
+            if (commMobile.isOpened() == true) {
+                byte[] btx_buf = this.qr_result_str.getBytes();
+                commMobile.write(btx_buf, btx_buf.length);
+            }
+        }
+
+        //zXingScannerView.resumeCameraPreview(this);
+    }
+
+
+
