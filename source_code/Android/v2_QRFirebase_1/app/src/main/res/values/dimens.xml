@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="my_margit">50dp</dimen>
+    <dimen name="h1">24sp</dimen>
+    <dimen name="h2">18sp</dimen>
+    <dimen name="my_padding">16dp</dimen>
+</resources>

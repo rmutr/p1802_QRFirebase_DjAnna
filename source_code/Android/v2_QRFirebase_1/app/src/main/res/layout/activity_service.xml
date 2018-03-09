@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/layoutDrawer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="slump.com.qrfirebase.ServiceActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Toolbar-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarService"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+        <!--Content-->
+        <FrameLayout
+            android:id="@+id/contentServiceFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+    <!--Drawer Menu-->
+    <LinearLayout
+        android:layout_gravity="start"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_width="320dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:textSize="@dimen/h1"
+            android:text="Drawer Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--Read Realtime-->
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_action_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtReadRealtime"
+                android:clickable="true"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:text="Read Realtime Service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--Write Realtime-->
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_action_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtWriteRealtime"
+                android:clickable="true"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:text="Write Realtime Service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--Post Multi Data-->
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_action_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtPostMultiData"
+                android:clickable="true"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:text="Post Multi Data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--Get Multi Data-->
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_action_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtGetMultiData"
+                android:clickable="true"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:text="Get Multi Data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--QR Code Scan-->
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_action_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtQRCodeScan"
+                android:clickable="true"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:text="QR Code Scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--Exit-->
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_action_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtExit"
+                android:clickable="true"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:text="Exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>

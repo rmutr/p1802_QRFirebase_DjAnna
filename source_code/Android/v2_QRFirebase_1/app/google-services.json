@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "878967286039",
+    "firebase_url": "https://qrfirebase-d2f04.firebaseio.com",
+    "project_id": "qrfirebase-d2f04",
+    "storage_bucket": "qrfirebase-d2f04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878967286039:android:7b12895b59a1d7fa",
+        "android_client_info": {
+          "package_name": "slump.com.qrfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878967286039-m66sbe6h0mggsq7vkc69g39n6134idpq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "slump.com.qrfirebase",
+            "certificate_hash": "5988e1ecf03d53f13b53ac8fe3eebb09906b5c3d"
+          }
+        },
+        {
+          "client_id": "878967286039-agus1lhl1okrhbu25i8pipsvkonmq4dr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqS09hwzXasfLPqRPP9ygNxAzjFhv5Krk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878967286039-agus1lhl1okrhbu25i8pipsvkonmq4dr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
