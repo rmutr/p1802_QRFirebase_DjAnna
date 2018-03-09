@@ -1,0 +1,9 @@
+<resources>
+    <string name="open">Open Drawer</string>
+    <string name="close">Close Drawer</string>
+    <string name="app_name">QR Firebase</string>
+    <string name="th_register">ลงทะเบียน :</string>
+    <string name="sub_register">Please Fill All Blank</string>
+    <string name="title_have_space">Have Space</string>
+    <string name="message_have_space">Please Fill All Every Blank</string>
+</resources>
